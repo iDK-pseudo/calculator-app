@@ -4,43 +4,44 @@
     <head>
         <title> Calculator app </title>
         <link href = "index.css" rel = "stylesheet"/>
+        <script src = "index.js" defer></script>
     </head>
     <body>
         <div id = "container">
-            <div class = "result"></div>
+            <div class = "result">0</div>
             <div class = "equal">
-                <Button> = </Button>
+                <Button onclick = "equalClicked()">=</Button>
             </div>
             <div class = "numRow1">
-                <Button>7</Button>
-                <Button>8</Button>
-                <Button>9</Button>
+                <Button class="num">7</Button>
+                <Button class="num">8</Button>
+                <Button class="num">9</Button>
             </div>
             <div>
-                <Button>/</Button>
+                <Button class="operators">/</Button>
             </div>
             <div class = "numRow2">
-                <Button>4</Button>
-                <Button>5</Button>
-                <Button>6</Button>
+                <Button class="num">4</Button>
+                <Button class="num">5</Button>
+                <Button class="num">6</Button>
             </div>
             <div>
-                <Button>*</Button>
+                <Button class="operators">*</Button>
             </div>
             <div class = "numRow3">
-                <Button>1</Button>
-                <Button>2</Button>
-                <Button>3</Button>
+                <Button class="num">1</Button>
+                <Button class="num">2</Button>
+                <Button class="num">3</Button>
             </div>
             <div>
-                <Button>-</Button>
+                <Button class="operators">-</Button>
             </div>
             <div class = "numRow4">
-                <Button>Clr</Button>
-                <Button>0</Button>
-                <Button>%</Button>
+                <Button onclick="clearClicked()">C</Button>
+                <Button class="num">0</Button>
+                <Button class="operators">%</Button>
             </div>
-            <div><Button>+</Button></div>
+            <div><Button class="operators">+</Button></div>
         </div>
     </body>
 </html>
