@@ -1,0 +1,41 @@
+#container {
+    display : grid;
+    margin-top: 10vh;
+    width: 50vw;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1vw;
+    grid-row-gap: 10vh;
+}
+
+.result {
+   background-color: grey;
+}
+
+button {
+    /* padding : 1vw; */
+    width : 4vw;
+    font-size: 2vw;
+}
+.equal{
+}
+
+.numRow1{
+    display : flex;
+    justify-content: space-around;
+}
+
+.numRow2{
+    display : flex;
+    justify-content: space-around;
+}
+
+.numRow3{
+    display : flex;
+    justify-content: space-around;
+}
+
+.numRow4{
+    display : flex;
+    justify-content: space-around;
+}
