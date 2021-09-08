@@ -5,43 +5,74 @@
         <title> Calculator app </title>
         <link href = "index.css" rel = "stylesheet"/>
         <script src = "index.js" defer></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div id = "container">
+        <div id = "outerContainer">
             <div class = "result">0</div>
-            <div class = "equal">
-                <Button onclick = "equalClicked()">=</Button>
+            <div id = "innerContainer">
+                <div>
+                    <Button>x<sup>2</sup></Button>
+                </div>
+                <div>
+                    <Button class = "operators">%</Button>
+                </div>
+                <div>
+                    <Button class = "operators">/</Button>
+                </div>
+                <div>
+                    <Button><i class="material-icons">backspace</i></Button>
+                </div>
+                <div>
+                    <Button class="num">7</Button>
+                </div>
+                <div>
+                    <Button class="num">8</Button>
+                </div>
+                <div>
+                    <Button class="num">9</Button>
+                </div>
+                <div>
+                    <Button class = "operators">X</Button>
+                </div>
+                <div>
+                    <Button class="num">4</Button>
+                </div>
+                <div>
+                    <Button class="num">5</Button>
+                </div>
+                <div>
+                    <Button class="num">6</Button>
+                </div>
+                <div>
+                    <Button class = "operators">-</Button>
+                </div>
+                <div>
+                    <Button class="num">1</Button>
+                </div>
+                <div>
+                    <Button class="num">2</Button>
+                </div>
+                <div>
+                    <Button class="num">3</Button>
+                </div>
+                <div>
+                    <Button class = "operators">+</Button>
+                </div>
+                <div>
+                    <Button onclick="clearClicked()">C</Button>
+                </div>
+                <div>
+                    <Button>0</Button>   
+                </div>
+                <div>
+                    <Button><i class="material-icons" style = "font-size: 12px;">fiber_manual_record</i></Button>
+                </div>
+                <div>
+                    <Button onclick = "equalClicked()">=</Button>
+                </div>
             </div>
-            <div class = "numRow1">
-                <Button class="num">7</Button>
-                <Button class="num">8</Button>
-                <Button class="num">9</Button>
-            </div>
-            <div>
-                <Button class="operators">/</Button>
-            </div>
-            <div class = "numRow2">
-                <Button class="num">4</Button>
-                <Button class="num">5</Button>
-                <Button class="num">6</Button>
-            </div>
-            <div>
-                <Button class="operators">*</Button>
-            </div>
-            <div class = "numRow3">
-                <Button class="num">1</Button>
-                <Button class="num">2</Button>
-                <Button class="num">3</Button>
-            </div>
-            <div>
-                <Button class="operators">-</Button>
-            </div>
-            <div class = "numRow4">
-                <Button onclick="clearClicked()">C</Button>
-                <Button class="num">0</Button>
-                <Button class="operators">%</Button>
-            </div>
-            <div><Button class="operators">+</Button></div>
         </div>
     </body>
 </html>

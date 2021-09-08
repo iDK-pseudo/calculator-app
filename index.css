@@ -1,30 +1,35 @@
-body {
-    /* background-image: linear-gradient(#5DE3B3,#C6FB67); */
-    /* height : 100%; */
+html, body {
     background-color: #EBAB30;
+    height : 100%;
 }
 
-#container {
+#outerContainer {
     display : grid;
-    border: 1px solid white;
-    padding: 2vw;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    border: 6px solid white;
+    padding: 5%;
     background-color: #3DBEE3;
-    box-shadow: 0.5vw 1vh;
-    margin-top: 5vh;
-    width: 28vw;
-    grid-template-columns: 2fr 0.3fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 1vw;
-    grid-row-gap: 10vh;
-    position : relative;
-    left : 30vw;
+    height : 80%;
+    margin-top: 15%;
+    grid-row-gap: 10%;
 }
+
+#innerContainer{
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5%;
+}
+
 
 .result {
-   font-size: 5vh;
-   padding: 1vh;
+   font-size: 200%;
+   padding-top: 5%;
+   padding-right: 5%;
    text-align: right;
    font-weight: bold;
+   overflow: scroll;
    color : black;
    background-color : white;
    border : 1px solid white;
@@ -33,38 +38,42 @@ body {
 
 
 button {
-    width : 5vw;
-    height : 8vh;
-    font-size: 2vw;
+    width : 100%;
+    height : 50%;
+    font-size: 150%;
     background-color : #E63A59;
     color : white;
     transition-duration: 0.4s;
     border-radius: 5px;
-    box-shadow : 3px 3px;
+    box-shadow : 3px 3px black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
 }
 
-button:hover{
+button:active{
     background-color : white;
     color : #E63A59;
     box-shadow : 1px 1px;
-}
+} 
 
-.numRow1{
-    display : flex;
-    justify-content: space-evenly;
-}
+/* 
+@media only screen and (max-width: 500px) {
+    #container {
+        width: 80%;
+        grid-template-columns: 2fr 0.3fr;
+        position: relative;
+        left : 5%;
+        padding: 5%;
+        grid-row-gap: 50px;
+    }
 
-.numRow2{
-    display : flex;
-    justify-content: space-evenly;
-}
+    button{
+        width : 25%;
+        height : 80%;
+        font-size: 100%;
+    }
 
-.numRow3{
-    display : flex;
-    justify-content: space-evenly;
-}
-
-.numRow4{
-    display : flex;
-    justify-content: space-evenly;
-}
+    .farRightCol {
+        width : 100%;
+    }
+} */
