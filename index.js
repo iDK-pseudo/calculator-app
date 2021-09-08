@@ -1,50 +1,79 @@
-const result = document.querySelector(".result");
+const resultDocument = document.querySelector(".result");
 const numButtons = document.querySelectorAll(".num");
 const operatorButtons = document.querySelectorAll(".operators")
-const SPECIAL = ["+","-","*","/","%"];
-let operatorOccured = false;
+const SPECIAL = ["+","-","x","/","%"];
+var operatorOccured = false;
 numButtons.forEach((numButton)=>{
     numButton.addEventListener("click",numButtonClicked);
 })
 operatorButtons.forEach((operatorButton)=>{
     operatorButton.addEventListener("click",operatorClicked);
 })
-
 function numButtonClicked(event){
-    if(result.textContent === "0"){
-        result.textContent = "";
+    if(resultDocument.textContent === "0"){
+        resultDocument.textContent = "";
     }
-    result.textContent+= event.target.textContent.trim();
+    if(resultDocument.textContent.length === 17){
+        window.alert("Please reduce the input length.")
+        return;
+    }
+    if(event.target.textContent.startsWith("fiber")){
+        resultDocument.textContent+=".";
+        return;
+    }
+    resultDocument.textContent+= event.target.textContent.trim();
 }
 
 function operatorClicked(event){
-    let value = result.textContent.trim(); 
-    if(SPECIAL.includes(value.charAt(value.length-1))){
-        result.textContent = result.textContent.substring(0,result.textContent.length-1) + event.target.textContent;
-        operatorOccured = true;
-    }else if(operatorOccured){
-        equalClicked(event.target.textContent);
+    let operator = event.target.textContent.trim();
+    let lastValue = resultDocument.textContent.charAt(resultDocument.textContent.length-2);
+    if(operatorOccured){
+        if(SPECIAL.includes(lastValue)){
+            resultDocument.textContent = `${resultDocument.textContent.substring(0,resultDocument.textContent.length-3)}  ${operator} `;
+        }else {
+            compute(operator);
+        }
     }else{
-        result.textContent+=event.target.textContent;
+        resultDocument.textContent+=` ${operator} `;
         operatorOccured = true;
     }
 }
 
-function equalClicked(val){
-   let expression =  result.textContent;
-   [a,op,b] = expression.split(/([^0-9])/);
-    switch(op){
-        case "+" : result.textContent = +a + +b; break;
-        case "-" : result.textContent = +a - +b; break;
-        case "*" : result.textContent = +a * +b; break;
-        case "/" : result.textContent = +a / +b; break;
-        case "%" : result.textContent = +a % +b; break;
+function performSquare(){
+    if((+resultDocument.textContent)**2){
+        resultDocument.textContent = (+resultDocument.textContent)**2
+    }else{
+        alert("Invalid Input for Square Operation");
     }
-    result.textContent+= val ? val : "";
-    operatorOccured = false;
+}
+
+function compute(newOperator){
+    let regex = /\s*([-\d.]+)\s+(\S+)\s+([-\d.]+)/g;
+    try {
+        [a,op,b] = regex.exec(resultDocument.textContent).slice(1,4);
+        let result = 0;
+        switch(op){
+            case "+" : result = +a + +b; break;
+            case "-" : result = +a - +b; break;
+            case "x" : result = +a * +b; break;
+            case "/" : result = +a / +b; break;
+            case "%" : result = +a % +b; break;
+        }
+        resultDocument.textContent = result + (newOperator ? newOperator : "");
+        operatorOccured = Boolean(newOperator);
+    }catch(error){
+        alert("Invalid Input.")
+    }
 }
 
 function clearClicked(){
-    console.log("clicked");
-    result.textContent = "0";
+    operatorOccured = false;
+    resultDocument.textContent = "0";
+}
+
+function backspace (){
+    resultDocument.textContent = resultDocument.textContent.substring(0,resultDocument.textContent.length-1);
+    if(resultDocument.textContent.length === 0){
+        resultDocument.textContent = "0";
+    }
 }

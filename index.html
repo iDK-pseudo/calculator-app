@@ -13,7 +13,7 @@
             <div class = "result">0</div>
             <div id = "innerContainer">
                 <div>
-                    <Button>x<sup>2</sup></Button>
+                    <Button onclick="performSquare()">x<sup>2</sup></Button>
                 </div>
                 <div>
                     <Button class = "operators">%</Button>
@@ -22,7 +22,7 @@
                     <Button class = "operators">/</Button>
                 </div>
                 <div>
-                    <Button><i class="material-icons">backspace</i></Button>
+                    <Button onclick = "backspace()"><i class="material-icons">backspace</i></Button>
                 </div>
                 <div>
                     <Button class="num">7</Button>
@@ -34,7 +34,7 @@
                     <Button class="num">9</Button>
                 </div>
                 <div>
-                    <Button class = "operators">X</Button>
+                    <Button class = "operators">x</Button>
                 </div>
                 <div>
                     <Button class="num">4</Button>
@@ -64,13 +64,13 @@
                     <Button onclick="clearClicked()">C</Button>
                 </div>
                 <div>
-                    <Button>0</Button>   
+                    <Button class="num">0</Button>   
                 </div>
                 <div>
-                    <Button><i class="material-icons" style = "font-size: 12px;">fiber_manual_record</i></Button>
+                    <Button class="num"><i class="material-icons" style = "font-size: 12px;">fiber_manual_record</i></Button>
                 </div>
                 <div>
-                    <Button onclick = "equalClicked()">=</Button>
+                    <Button onclick = "compute()">=</Button>
                 </div>
             </div>
         </div>
